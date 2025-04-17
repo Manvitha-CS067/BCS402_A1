@@ -1,0 +1,22 @@
+        AREA ASSMT3, CODE, READONLY
+ENTRY
+
+        LDR R0, =NUMBERS        
+        LDR R1, =SUM            
+        MOV R2, #0              
+        MOV R3,#5
+LOOP
+        LDR R4, [R0], #4        
+        MUL R5, R4, R5          
+        ADD R2, R2, R4          
+        SUBS R3, R3, #1         
+        BNE LOOP               
+        STR R2,[R1]
+STOP
+        
+        B STOP     
+NUMBERS
+        DCD 2, 4, 6, 8, 10      
+SUM
+        DCD 0
+        END

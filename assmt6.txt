@@ -1,0 +1,14 @@
+        AREA BITCOUNT, CODE, READONLY
+START
+
+        LDR R0, =0xF0F0F0F0   
+        MOV R1, #0 
+           
+COUNT_SET_BITS
+
+        TST R0, #1            
+        ADDNE R1, R1, #1      
+        LSR R0, R0, #1        
+        BNE COUNT_SET_BITS      
+
+        END

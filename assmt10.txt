@@ -1,0 +1,10 @@
+	AREA ASSMT10, CODE, READONLY
+START
+        LDR R0, =SRC
+        LDR R1, =DST
+        LDMIA R0!, {R2-R6}
+        STMIA R1!, {R2-R6}
+SRC DCD 1, 2, 3, 4, 5
+DST DCD 0, 0, 0, 0, 0
+
+        END

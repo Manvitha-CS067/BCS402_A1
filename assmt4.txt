@@ -1,0 +1,32 @@
+        AREA ASSMT4, CODE, READONLY
+START
+
+        MOV R0, #13        
+        MOV R1, R0            
+        MOV R2, #2              
+        MOV R3, #1              
+
+CHECK
+        CMP R2, R1              
+        BGE DONE               
+
+        MOV R4, R1              
+LOOP_DIVISION
+        SUB R4, R4, R2          
+        CMP R4, #0              
+        BEQ NOT_PRIME           
+        BLT NEXT_CHECK          
+
+        B LOOP_DIVISION         
+
+NEXT_CHECK
+        ADD R2, R2, #1          
+        B CHECK                
+
+NOT_PRIME
+        MOV R3, #0              
+
+DONE
+        B DONE                  
+
+        END

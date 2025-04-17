@@ -1,0 +1,23 @@
+        AREA FIBONACCI, CODE, READONLY
+ENTRY
+
+        MOV     R0, #0          
+        MOV     R1, #1          
+        LDR     R2, =fibo_array  
+        MOV     R3, #1     
+        
+LOOP
+        STR     R0, [R2], #4 
+        ADD     R4, R0, R1   
+        MOV     R0, R1       
+        MOV     R1, R4       
+        SUBS    R3, R3, #1      
+        BNE     LOOP            
+
+        B   ENDS             
+     
+fibo_array
+        SPACE   40              
+
+ENDS
+        END
